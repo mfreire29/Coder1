@@ -2,8 +2,12 @@ import React from 'react'
 
 function Footer() {
     return (
-        <footer>
-            Hola3
+        <footer className="footer">
+            <div className="container">
+                <p className="text-muted text-center">
+                    Todos los Derechos Reservados
+                </p>
+            </div>
         </footer>
     )
 }
