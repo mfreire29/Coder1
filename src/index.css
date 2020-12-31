@@ -37,3 +37,41 @@ code {
 .d-flex .nav-link:hover {
   color: grey;
 }
+.btn.right {
+  border-radius: 0;
+  height: 35px;
+  outline: none;
+}
+
+.btn.left {
+  border-radius: 0;
+  height: 35px;
+}
+
+.btn.add {
+  border-radius: 0;
+  height: 35px;
+  width: 148px;
+  margin-top: 10px;
+}
+.btn.add:hover {
+  opacity: 0.7;
+}
+.item-count {
+  border: 1px solid black;
+  max-width: 148px;
+  height: 36px;
+  text-align: center;
+}
+
+.item-count span {
+  width: 100%;
+  line-height: 35px;
+}
+
+.item-count .left {
+  float: left;  
+}
+.item-count .right {
+  float: right;  
+}
