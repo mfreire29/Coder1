@@ -1,5 +1,6 @@
 import { red } from "@material-ui/core/colors";
 import React from "react";
+import ItemList from './ItemList'
 
 function ItemListContainer({ greeting }) {
   const style = {
@@ -24,6 +25,7 @@ function ItemListContainer({ greeting }) {
         </svg>
         {greeting}
       </p>
+      <ItemList/>
     </div>
   );
 }

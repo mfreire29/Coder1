@@ -1,5 +1,6 @@
 import React from 'react'
 import ItemCount from './ItemCount'
+import ItemList from './ItemList'
 import ItemListContainer from './ItemListContainer'
 
 function Main() {
@@ -10,7 +11,7 @@ function Main() {
                 <div className="row">
                     <div className="col-12">
                         <ItemListContainer greeting="Listado de Productos"/>
-                        <ItemCount stock={5} initial={1}/>
+                        
                     </div>
                 </div>
             </div>
