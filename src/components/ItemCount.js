@@ -14,7 +14,7 @@ function ItemCount({ stock, initial}) {
         if(cantidad === stock) {
             console.log('stock maximo')
         }
-        
+        /*
         const pedido = fetch('https://jsonplaceholder.typicode.com/users')
 
         pedido
@@ -35,6 +35,7 @@ function ItemCount({ stock, initial}) {
         .catch(()=>{
             console.log('Errorrrr')
         })
+        */
     },[cantidad])
 
     const aumentarCantidad = () => {
@@ -66,12 +67,12 @@ function ItemCount({ stock, initial}) {
                 <button className="btn btn-dark left" onClick = { reducirCantidad }>-</button>  
                 <span>{stock > 0 ? cantidad : 0}</span>
                 <button className="btn btn-dark right" onClick = { aumentarCantidad }>+</button>
+                {stock > 0 ? 
+                    <button className="btn btn-dark add" onClick = { onAdd }>Agregar al Carrito</button>    
+                    :
+                    <button className="btn btn-dark add">SIN STOCK</button>
+                }
             </div>
-            {stock > 0 ? 
-                <button className="btn btn-dark add" onClick = { onAdd }>Agregar al Carrito</button>    
-                :
-                <button className="btn btn-dark add">SIN STOCK</button>
-            }
         </>
     )
 }
