@@ -41,6 +41,21 @@ code {
 .d-flex .nav-link:hover {
   color: grey;
 }
+
+.nav-link:hover {
+  color: #ff4a4a !important;
+}
+
+.product-title {
+  text-decoration: none;
+  color: black;
+}
+
+.product-title:hover{
+  color: black;
+  opacity: 0.5;
+}
+
 .btn.right {
   border-radius: 0;
   height: 35px;
@@ -82,16 +97,15 @@ code {
 
 .efecto {
   opacity: 1;
-  transition: all ease 300ms;
+  transition: all ease 500ms;
   border-radius: 15px;
 }
 
 .efecto:hover {
-  opacity: 0.9;
-  transition: all ease 150ms;
-  transform: scale(1.05);
+  opacity: 0.5;
+  transition: all ease 300ms;
+  transform: scale(0.97);
   cursor: pointer;
-  filter: sepia(10%)
 }
 
 .efecto:target {
