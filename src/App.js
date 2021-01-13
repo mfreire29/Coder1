@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import ItemListContainer from './components/ItemListContainer'
+import Cart from './components/Cart'
 
 const App = () => {
     return (
@@ -18,6 +19,9 @@ const App = () => {
           </Route>
           <Route exact path="/item/:id">
             <ItemDetailContainer greeting="Detalle de Producto"/>
+          </Route>
+          <Route exact path="/cart">
+            <Cart greeting="Cesta de Compras"/>
           </Route>
         </Switch>
         <Footer/>

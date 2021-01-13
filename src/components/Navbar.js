@@ -45,7 +45,7 @@ function Navbar() {
               </li>
             </ul>
             <div className="d-flex">
-                <NavLink to="/" className="nav-link">
+                <NavLink to="/cart" className="nav-link">
                     <CartWidget/>
                 </NavLink>
             </div>
