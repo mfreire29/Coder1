@@ -7,6 +7,7 @@ function ItemDetailContainer({ greeting }) {
     const data = [
         {
         "id": 1,
+        "category": 1,
         "title": "Remera Hombre",
         "description": "Remera lisa de ALgodón",
         "price": 950.00,
@@ -15,6 +16,7 @@ function ItemDetailContainer({ greeting }) {
     },
     {
         "id": 2,
+        "category": 1,
         "title": "Remera Mujer",
         "description": "Remera Rayada blanca",
         "price": 700.00,
@@ -23,6 +25,7 @@ function ItemDetailContainer({ greeting }) {
     },
     {
         "id": 3,
+        "category": 1,
         "title": "Remera Niño",
         "description": "Remera de Mickey",
         "price": 650.00,
@@ -31,6 +34,7 @@ function ItemDetailContainer({ greeting }) {
     },
     {
         "id": 4,
+        "category": 1,
         "title": "Remera Hombre",
         "description": "Remera lisa de ALgodón",
         "price": 950.00,
@@ -39,6 +43,7 @@ function ItemDetailContainer({ greeting }) {
     },
     {
         "id": 5,
+        "category": 1,
         "title": "Remera Mujer",
         "description": "Remera Rayada blanca",
         "price": 700.00,
@@ -47,6 +52,7 @@ function ItemDetailContainer({ greeting }) {
     },
     {
         "id": 6,
+        "category": 1,
         "title": "Remera Niño",
         "description": "Remera de Mickey",
         "price": 650.00,
@@ -55,6 +61,7 @@ function ItemDetailContainer({ greeting }) {
     },
     {
         "id": 7,
+        "category": 1,
         "title": "Remera Hombre",
         "description": "Remera lisa de ALgodón",
         "price": 950.00,
@@ -63,6 +70,7 @@ function ItemDetailContainer({ greeting }) {
     },
     {
         "id": 8,
+        "category": 1,
         "title": "Remera Mujer",
         "description": "Remera Rayada blanca",
         "price": 700.00,
@@ -71,6 +79,7 @@ function ItemDetailContainer({ greeting }) {
     },
     {
         "id": 9,
+        "category": 1,
         "title": "Remera Niño",
         "description": "Remera de Mickey",
         "price": 650.00,
@@ -79,6 +88,7 @@ function ItemDetailContainer({ greeting }) {
     },
     {
         "id": 10,
+        "category": 1,
         "title": "Remera Hombre",
         "description": "Remera lisa de ALgodón",
         "price": 950.00,
@@ -87,6 +97,7 @@ function ItemDetailContainer({ greeting }) {
     },
     {
         "id": 11,
+        "category": 1,
         "title": "Remera Mujer",
         "description": "Remera Rayada blanca",
         "price": 700.00,
@@ -95,6 +106,25 @@ function ItemDetailContainer({ greeting }) {
     },
     {
         "id": 12,
+        "category": 1,
+        "title": "Remera Niño",
+        "description": "Remera de Mickey",
+        "price": 650.00,
+        "stock": 5,
+        "pictureUrl": 'https://www.freejpg.com.ar/image-900/a4/a451/F100012458-hombre_adulto_con_barba_colorada_con_mirada_de_seguridad.jpg',
+    },
+    {
+        "id": 13,
+        "category": 2,
+        "title": "Remera Mujer",
+        "description": "Remera Rayada blanca",
+        "price": 700.00,
+        "stock": 14,
+        "pictureUrl": 'https://www.freejpg.com.ar/image-900/9d/9d0c/F100012464-hombre_con_camisa_floreada_y_lentes_en_verano.jpg',
+    },
+    {
+        "id": 14,
+        "category": 2,
         "title": "Remera Niño",
         "description": "Remera de Mickey",
         "price": 650.00,
@@ -140,8 +170,8 @@ function ItemDetailContainer({ greeting }) {
         .catch(()=>{
             console.log('Salió todo mal')
         })
-    
-    }, [data])
+    // eslint-disable-next-line
+    }, [])
 
     const style = {
         margin: "0.5em",
@@ -168,8 +198,8 @@ function ItemDetailContainer({ greeting }) {
                     { greeting }
                     </p>
                     { loader ? 
-                            <div class="text-center">
-                                <div class="spinner-border" role="status">
+                            <div className="text-center">
+                                <div className="spinner-border" role="status">
                                 </div>
                             </div> 
                         :
@@ -177,7 +207,7 @@ function ItemDetailContainer({ greeting }) {
                     }
                     {
                         producto.map(a => {
-                            return <ItemDetail key={a.id} id={a.id} title={a.title} description={a.description} price={a.price} stock={a.stock} pictureUrl={a.pictureUrl} />
+                            return <ItemDetail key={a.id} id={a.id} title={a.title} description={a.description} price={a.price} stock={a.stock} pictureUrl={a.pictureUrl}/>
                         })
                     }
                 </div>
