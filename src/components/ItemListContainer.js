@@ -1,13 +1,30 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
+import { useParams } from 'react-router-dom'
 import ItemList from './ItemList'
 
-function ItemListContainer({ greeting }) {
+function ItemListContainer({ greeting, data, loader }) {
+  
   const style = {
     margin: "0.5em",
     paddingLeft: 0,
     listStyle: "none",
     color: "#a9a9a9",
   };
+
+  const { nombre } = useParams()
+  const [listado, setListado] = useState([])
+
+  useEffect(()=>{
+
+      if(nombre) {
+        const categoria = data.filter(a => a.category_name === nombre )
+        setListado(categoria)
+        //console.log(data)
+      } else {
+        setListado(data)
+      }
+  
+  }, [data, nombre])
 
   return (
     <>
@@ -28,7 +45,7 @@ function ItemListContainer({ greeting }) {
                   {greeting}
                 </p>    
               </div>
-              <ItemList/>
+              <ItemList listado={ listado } loader={ loader }/>
           </div>
       </div>
       

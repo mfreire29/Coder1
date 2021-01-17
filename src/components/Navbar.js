@@ -29,13 +29,13 @@ function Navbar() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/category/1" className="nav-link">
-                  Categoría 1
+                <NavLink to="/category/Mujer" className="nav-link">
+                  Mujer
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/category/2" className="nav-link">
-                  Categoría 2
+                <NavLink to="/category/Hombre" className="nav-link">
+                  Hombre
                 </NavLink>
               </li>
               <li className="nav-item">

@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 
-function ItemCount({ stock, initial}) {
+function ItemCount({ stock, initial, onAdd}) {
 
-    const [cantidad, setCantidad] = useState(initial)
-    const [cantidadAdd, setCantidadAdd] = useState(0)
-    const [notif, setNotif] = useState(false)
+    const [cantidad, setCantidad] = useState(initial) 
 
     //const [carrito, setCarrito] = useState(0)
 
@@ -53,17 +51,10 @@ function ItemCount({ stock, initial}) {
         }
     }
 
-    const onAdd = () => {
-        setNotif(true)
-        setCantidadAdd(cantidad)
-        if(cantidad === 1) {
-            console.log("Se ha agregado " + cantidad + " producto al carrito." )
-        } else {
-            console.log("Se han agregado " + cantidad + " productos al carrito." )
-        }
+    const cantidadAdd = () => {
+        setCantidad(cantidad)
+        onAdd(cantidad)
     }
-
-
 
     return (
         <>
@@ -74,18 +65,9 @@ function ItemCount({ stock, initial}) {
                 <button className="btn btn-dark right" onClick = { aumentarCantidad }>+</button>
                 {
                     stock > 0 ? 
-                        <button className="btn btn-dark add" onClick = { onAdd }>Agregar al Carrito</button>    
+                        <button className="btn btn-dark add" onClick = { cantidadAdd }>Agregar al Carrito</button>    
                     :
                         <button className="btn text-danger add">SIN STOCK</button>
-                }
-                {
-                    notif ?
-                        cantidadAdd > 1 ?
-                            <p className="mt-3">Se han agregado { cantidadAdd } al carrito.</p>
-                        :
-                            <p className="mt-3">Se ha agregado { cantidadAdd } al carrito.</p>
-                    :
-                        ''
                 }
             </div>
         </>

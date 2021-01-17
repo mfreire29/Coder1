@@ -98,7 +98,8 @@ code {
 .efecto {
   opacity: 1;
   transition: all ease 500ms;
-  border-radius: 15px;
+  border-radius: 0px;
+  box-shadow: 10px;
 }
 
 .efecto:hover {
@@ -106,6 +107,7 @@ code {
   transition: all ease 300ms;
   transform: scale(0.97);
   cursor: pointer;
+  filter: grayscale(100%);
 }
 
 .efecto:target {
