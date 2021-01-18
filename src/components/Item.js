@@ -25,7 +25,7 @@ function Item({id, title, stock, description, price, pictureUrl}) {
         <>
                 <div className="col-xs-12 col-sm-6 col-md-3 my-5 pb-5 text-center">
                     <NavLink to={`/item/`+ id} >
-                        <img src={pictureUrl} className="img-fluid efecto" alt={description}/>
+                        <img src={pictureUrl} className="img-fluid efecto  animate__animated animate__fadeIn" alt={description}/>
                     </NavLink>
                     <h5 className="card-title text-center my-0 py-0 pt-3">
                         <NavLink to={`/item/`+ id} className="product-title" >
@@ -34,7 +34,7 @@ function Item({id, title, stock, description, price, pictureUrl}) {
                     </h5>
                     <p className="card-text text-center my-0 py-0">{description}</p>
                     <h3 className="card-text text-center mt-2"><b>${price}.-</b></h3>
-                    {
+                    {/* {
                         notif ?
                             estado > 0 ?
                                 estado === 1  ?
@@ -56,7 +56,7 @@ function Item({id, title, stock, description, price, pictureUrl}) {
                             </>
                         :
                             <ItemCount stock={stock} initial={1} onAdd={onAdd} />
-                    }                    
+                    } */}                    
                 </div>
         </>
     )

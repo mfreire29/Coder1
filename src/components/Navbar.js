@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import CartWidget from "./CartWidget";
 import { NavLink } from 'react-router-dom'
+import {CartContext} from '../context/cartContext'
+
 
 function Navbar() {
+
+  const { unidadesCarro, clear } = useContext(CartContext)
+
+  const vaciarCarro = () => {
+    clear()
+  }
+
   return (
     <>
       <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div className="container-fluid">
           <NavLink to="/" className="navbar-brand">
-            Tienda Online
+            CAPADOCIA
           </NavLink>
           <button
             className="navbar-toggler"
@@ -49,6 +58,20 @@ function Navbar() {
                     <CartWidget/>
                 </NavLink>
             </div>
+            <div className="cart-float">
+              <NavLink to="/cart" className="nav-link">
+                    <CartWidget/>
+                </NavLink>
+            </div>
+            <span className="badge badge-primary">{ unidadesCarro }</span>
+            {
+              unidadesCarro > 0 ?
+              <div className="clear-float">
+                    <button onClick={ vaciarCarro } className="btn btn-danger">Vaciar Carrito</button>
+              </div>
+              :
+              ''
+            }
           </div>
         </div>
       </nav>

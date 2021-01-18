@@ -6,6 +6,8 @@ import ItemDetailContainer from './components/ItemDetailContainer'
 import ItemListContainer from './components/ItemListContainer'
 import Cart from './components/Cart'
 
+import CartProvider, { CartContext } from './context/cartContext'
+
 const data = [
   {
 "id": 1,
@@ -202,7 +204,8 @@ useEffect(() => {
 }, [])
 
   return (
-      <BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
         <Header/>
         <Switch>
           <Route exact path="/">
@@ -220,6 +223,7 @@ useEffect(() => {
         </Switch>
         <Footer/>
       </BrowserRouter>
+      </CartProvider>
     )
     /*
     [
