@@ -53,17 +53,7 @@ function Navbar() {
                 </NavLink>
               </li>
             </ul>
-            <div className="d-flex">
-                <NavLink to="/cart" className="nav-link">
-                    <CartWidget/>
-                </NavLink>
-            </div>
-            <div className="cart-float">
-              <NavLink to="/cart" className="nav-link">
-                    <CartWidget/>
-                </NavLink>
-            </div>
-            <span className="badge badge-primary">{ unidadesCarro }</span>
+            <CartWidget/>
             {
               unidadesCarro > 0 ?
               <div className="clear-float">

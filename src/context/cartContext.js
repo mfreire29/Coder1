@@ -6,23 +6,29 @@ const CartProvider = (props) => {
 
     const [carro, setCarro] = useState([])
     const [unidadesCarro, setUnidadesCarro] = useState(0)
+    const [totalCarro, setTotalCarro] = useState(0)
+
 
     useEffect(() => {
         console.log(carro)
-    }, [carro])
+        console.log("total carro: ", totalCarro)
+
+    }, [carro, totalCarro])
 
 
 
-    const addItem = (item, quantity) => {        
+    const addItem = (item, title, quantity, price, pictureUrl) => {        
         if(isInCart(item).length === 0) {
-            setCarro([...carro, { id: item, quantity: quantity }])
+            setCarro([...carro, { id: item, title: title, quantity: quantity, precio: price, pictureUrl: pictureUrl, total: (price*quantity) }])
         }
         setUnidadesCarro(unidadesCarro + quantity)
+        setTotalCarro(totalCarro + (price*quantity))
     }
 
     const removeItem = (id, quantity) => {
         let un = carro.filter(a => a.id === parseInt(id))
         setUnidadesCarro(unidadesCarro - un[0].quantity)
+        setTotalCarro(totalCarro - (un[0].precio * un[0].quantity))
         const carrito = carro.filter(a => a.id !== parseInt(id))
         setCarro(carrito)
     }
@@ -30,6 +36,7 @@ const CartProvider = (props) => {
     const clear = () => {
         setCarro([])
         setUnidadesCarro(0)
+        setTotalCarro(0)
     }
 
     const isInCart = (id) => {
@@ -48,7 +55,8 @@ const CartProvider = (props) => {
                 removeItem,
                 isInCart,
                 clear,
-                unidadesCarro
+                unidadesCarro,
+                totalCarro
             }}
         >
             {props.children}

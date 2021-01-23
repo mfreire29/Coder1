@@ -12,7 +12,7 @@ function ItemDetail({ id, title, stock, description, price, pictureUrl }) {
     const onAdd = (cantidad) => {
         setNotif(true)
         setEstado(cantidad)
-        addItem(id, cantidad)
+        addItem(id, title, cantidad, price, pictureUrl)
         if(cantidad === 1) {
             console.log("Se ha agregado " + cantidad + " producto al carrito." )
         } else {
@@ -22,6 +22,7 @@ function ItemDetail({ id, title, stock, description, price, pictureUrl }) {
 
     const eliminarProductoCarrito = () => {
         removeItem(id)
+        setEstado(0)
     }
 
     return (
