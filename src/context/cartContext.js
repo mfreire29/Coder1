@@ -8,15 +8,6 @@ const CartProvider = (props) => {
     const [unidadesCarro, setUnidadesCarro] = useState(0)
     const [totalCarro, setTotalCarro] = useState(0)
 
-
-    useEffect(() => {
-        console.log(carro)
-        console.log("total carro: ", totalCarro)
-
-    }, [carro, totalCarro])
-
-
-
     const addItem = (item, title, quantity, price, pictureUrl) => {        
         if(isInCart(item).length === 0) {
             setCarro([...carro, { id: item, title: title, quantity: quantity, precio: price, pictureUrl: pictureUrl, total: (price*quantity) }])
@@ -26,10 +17,10 @@ const CartProvider = (props) => {
     }
 
     const removeItem = (id, quantity) => {
-        let un = carro.filter(a => a.id === parseInt(id))
+        let un = carro.filter(a => a.id === id)
         setUnidadesCarro(unidadesCarro - un[0].quantity)
         setTotalCarro(totalCarro - (un[0].precio * un[0].quantity))
-        const carrito = carro.filter(a => a.id !== parseInt(id))
+        const carrito = carro.filter(a => a.id !== id)
         setCarro(carrito)
     }
 

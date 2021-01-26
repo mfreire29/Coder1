@@ -5,9 +5,10 @@ import Footer from './components/Footer'
 import ItemDetailContainer from './components/ItemDetailContainer'
 import ItemListContainer from './components/ItemListContainer'
 import Cart from './components/Cart'
+import { Firestore } from './firebaseConfig'
 
-import CartProvider, { CartContext } from './context/cartContext'
-
+import CartProvider from './context/cartContext'
+/*
 const data = [
   {
 "id": 1,
@@ -171,12 +172,46 @@ const data = [
   "pictureUrl": 'https://www.bief.com.ar/capadocia_web/16.jpg',
 }
 ]
-
+*/
 const App = () => {
 
   const [listado, setListado] = useState([])
   const [loader, setLoader] = useState(true)
 
+useEffect(() => {
+
+  const db = Firestore
+  const collection = db.collection("items")
+  const query = collection.get()
+
+  query
+  .then((res) =>{
+    //console.log(res.docs)
+    const items_array = res.docs
+    
+    let items_obtenidos = []
+
+    items_array.forEach(item => {
+      //console.log(item.id)
+      //console.log(item.data())
+      const producto_final = {
+        id : item.id,
+        ...item.data()
+      }
+
+      items_obtenidos.push(producto_final)
+      
+      setLoader(false)
+      
+      console.log(producto_final)
+    })
+    setListado(items_obtenidos)
+  })
+  .catch(() => {
+    console.log("falló")
+  })
+}, [])
+/*
 useEffect(() => {
     const promesa = new Promise((resolver, rechazar)=>{
       setTimeout(() => {
@@ -202,7 +237,7 @@ useEffect(() => {
       console.log('Salió todo mal')
   })
 }, [])
-
+*/
   return (
       <CartProvider>
         <BrowserRouter>
@@ -211,7 +246,7 @@ useEffect(() => {
           <Route exact path="/">
             <ItemListContainer greeting="Listado de Productos" data={ listado }loader={ loader } />
           </Route>
-          <Route exact path="/category/:nombre">
+          <Route exact path="/category/:id">
             <ItemListContainer greeting="Listado de Productos" data={ listado }loader={ loader }/>
           </Route>
           <Route exact path="/item/:id">

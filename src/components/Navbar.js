@@ -38,12 +38,12 @@ function Navbar() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/category/Mujer" className="nav-link">
+                <NavLink to="/category/1" className="nav-link">
                   Mujer
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink to="/category/Hombre" className="nav-link">
+                <NavLink to="/category/2" className="nav-link">
                   Hombre
                 </NavLink>
               </li>

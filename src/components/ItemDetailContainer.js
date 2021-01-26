@@ -10,7 +10,7 @@ function ItemDetailContainer({ greeting, data }) {
     
     useEffect(()=>{
 
-        let dato = data.filter(data => data.id === parseInt(id))
+        let dato = data.filter(data => data.id === id)
         setProducto(dato)
         setloader(false)
                 

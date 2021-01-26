@@ -4,20 +4,20 @@ import Item from './Item'
 
 function ItemList({ listado, loader }) {
 
-    const { nombre } = useParams();
+    const { id } = useParams();
 
     return (
         <>
                 {
-                    nombre ?
-                        <h3 className="text-center">{  ( nombre ) }</h3>
+                    id ?
+                        <h3 className="text-center">{  parseInt(id) === 1 ? 'Mujer' : 'Hombre' }</h3>
                     :
-                    <h3 className="text-center">Todos nuestros productos</h3>
+                    <h3 className="text-center">Nuestros Productos</h3>
                 }
 
                 { loader ? 
-                    <div class="text-center mt-5">
-                        <div class="spinner-border" role="status">
+                    <div className="text-center mt-5">
+                        <div className="spinner-border" role="status">
                         </div>
                     </div> 
                 :

@@ -12,20 +12,20 @@ function ItemListContainer({ greeting, data, loader }) {
     color: "#a9a9a9",
   };
 
-  const { nombre } = useParams()
+  const { id } = useParams()
   const [listado, setListado] = useState([])
 
   useEffect(()=>{
 
-      if(nombre) {
-        const categoria = data.filter(a => a.category_name === nombre )
+      if(id) {
+        const categoria = data.filter(a => a.category_id === parseInt(id) )
         setListado(categoria)
         //console.log(data)
       } else {
         setListado(data)
       }
   
-  }, [data, nombre])
+  }, [data, id])
 
   return (
     <>
