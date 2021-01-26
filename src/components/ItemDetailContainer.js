@@ -1,20 +1,41 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
+import { Firestore } from '../firebaseConfig'
+
 
 function ItemDetailContainer({ greeting, data }) {
 
     const [producto, setProducto] = useState([])
-    const [loader, setloader] = useState(true)
+    const [loader, setLoader] = useState(true)
     const { id } = useParams();
-    
-    useEffect(()=>{
 
-        let dato = data.filter(data => data.id === id)
+    useEffect(() => {
+
+        const db = Firestore
+        const collection = db.collection("items").doc(id)
+        const query = collection.get()
+      
+        query
+        .then((res) =>{
+          //console.log(res.data())
+        
+          setProducto(res.data())
+          setLoader(false)
+        })
+        .catch(() => {
+          console.log("falló")
+        })
+      }, [])
+    
+    /* useEffect(()=>{
+
+
+        let dato = datproducto.filter(data => datproducto.id === id)
         setProducto(dato)
         setloader(false)
                 
-    }, [id, data])
+    }, [id, data]) */
 
     const style = {
         margin: "0.5em",
@@ -48,11 +69,10 @@ function ItemDetailContainer({ greeting, data }) {
                         :
                             ''
                     }
-                    {
-                        producto.map(a => {
-                            return <ItemDetail key={a.id} id={a.id} title={a.title} description={a.description} price={a.price} stock={a.stock} pictureUrl={a.pictureUrl}/>
-                        })
-                    }
+                    
+                    <ItemDetail key={producto.id} id={producto.id} title={producto.title} description={producto.description} price={producto.price} stock={producto.stock} pictureUrl={producto.pictureUrl}/>
+                    
+                    
                 </div>
             </div>
         </div>
