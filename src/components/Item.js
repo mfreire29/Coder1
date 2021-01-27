@@ -23,7 +23,7 @@ function Item({id, title, stock, description, price, pictureUrl}) {
 
     return (
         <>
-                <div className="col-xs-12 col-sm-6 col-md-3 my-5 pb-5 text-center">
+                <div className="col-6 col-sm-6 col-md-3 my-3 pb-0 text-center">
                     <NavLink to={`/item/`+ id} >
                         <img src={pictureUrl} className="img-fluid efecto  animate__animated animate__fadeIn" alt={description}/>
                     </NavLink>

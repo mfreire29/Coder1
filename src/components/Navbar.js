@@ -53,18 +53,10 @@ function Navbar() {
                 </NavLink>
               </li>
             </ul>
-            <CartWidget/>
-            {
-              unidadesCarro > 0 ?
-              <div className="clear-float">
-                    <button onClick={ vaciarCarro } className="btn btn-danger">Vaciar Carrito</button>
-              </div>
-              :
-              ''
-            }
           </div>
         </div>
       </nav>
+      <CartWidget/>
     </>
   );
 }

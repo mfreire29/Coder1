@@ -10,7 +10,13 @@ function Cart({ greeting }) {
         paddingLeft: 0,
         listStyle: "none",
         color: "#a9a9a9",
-      };
+    };
+
+    const { unidadesCarro, clear } = useContext(CartContext)
+
+    const vaciarCarro = () => {
+        clear()
+    }
     
     const { totalCarro, carro, removeItem } = useContext(CartContext)
 
@@ -18,9 +24,9 @@ function Cart({ greeting }) {
 
     return (
         <div>
-            <div className="container mb-5">
+            <div className="container">
                 <div className="row">
-                    <div className="col-12">
+                    <div className="col-12 my-5">
                         <p className="titulo-pagina" style={style}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -34,6 +40,12 @@ function Cart({ greeting }) {
                         </svg>
                         
                         { greeting }
+                        {
+                            unidadesCarro > 0 ?
+                                        <button onClick={ vaciarCarro } className="btn btn-danger">Vaciar</button>
+                            :
+                                ''
+                        }
                         </p>
 
                         {
@@ -56,7 +68,7 @@ function Cart({ greeting }) {
                                     <h1 className="text-center pt-3"> Tu carrito está vacío</h1>
                                     <h3 className="text-danger text-center">¿Qué esperás para llenarlo?</h3>
                                     <NavLink to="/">
-                                        <button className="btn btn-dark mt-3">Quiero empezar a comprar 😄</button>
+                                        <button className="btn btn-danger mt-3">Quiero empezar a comprar 😄</button>
                                     </NavLink>
                                 </div>
                         }

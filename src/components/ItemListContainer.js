@@ -31,7 +31,7 @@ function ItemListContainer({ greeting, data, loader }) {
     <>
       <div className="container">
           <div className="row">
-              <div className="col-12">
+              <div className="col-12 mt-5 pb-3">
                 <p className="titulo-pagina" style={style}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -19,14 +19,19 @@ function ItemDetailContainer({ greeting, data }) {
         query
         .then((res) =>{
           //console.log(res.data())
+
+          const producto_final = {
+            id : res.id,
+            ...res.data()
+          }
         
-          setProducto(res.data())
+          setProducto(producto_final)
           setLoader(false)
         })
         .catch(() => {
           console.log("falló")
         })
-      }, [])
+      }, [id])
     
     /* useEffect(()=>{
 
@@ -46,33 +51,17 @@ function ItemDetailContainer({ greeting, data }) {
     
     return (
         <div>
-            <div className="container">
+            <div className="container-fluid">
                 <div className="row">
-                    <p className="titulo-pagina" style={style}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="bi bi-caret-right-fill"
-                        viewBox="0 0 16 16"
-                    >
-                        <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                    </svg>
-                    { greeting }
-                    </p>
                     { loader ? 
-                            <div className="text-center">
+                            <div className="text-center mt-5">
                                 <div className="spinner-border" role="status">
                                 </div>
                             </div> 
                         :
-                            ''
+                            <ItemDetail key={producto.id} id={producto.id} title={producto.title} description={producto.description} price={producto.price} stock={producto.stock} pictureUrl={producto.pictureUrl}/>
                     }
-                    
-                    <ItemDetail key={producto.id} id={producto.id} title={producto.title} description={producto.description} price={producto.price} stock={producto.stock} pictureUrl={producto.pictureUrl}/>
-                    
-                    
+                                       
                 </div>
             </div>
         </div>

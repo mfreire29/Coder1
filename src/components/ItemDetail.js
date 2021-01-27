@@ -24,17 +24,18 @@ function ItemDetail({ id, title, stock, description, price, pictureUrl }) {
         removeItem(id)
         setEstado(0)
     }
+    console.log(id)
 
     return (
         <>  
-            <div className="col-xs-12 col-sm-6">
-                <img src={pictureUrl} className="img-fluid efecto" alt={ description }/>
+            <div className="col-xs-12 col-sm-6 p-0">
+                <img src={pictureUrl} className="img-fluid efecto animate__animated animate__fadeInLeft" alt={ description }/>
             </div>
-            <div className="col-xs-12 col-sm-6">
+            <div className="col-xs-12 col-sm-6 p-5">
                 <h1>{ title }</h1>
                 <h5>{ description }</h5>
                 <h1 className="mt-5 text-center"><span className="text-danger"><b>${ price }.-</b></span><br/>pesos argentinos</h1>
-                <div className="mt-5 text-center">
+                <div className="my-5 text-center">
                     <p className="text-muted text-center">Stock Disponible: { stock }</p>
                     
                     {
