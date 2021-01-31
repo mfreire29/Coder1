@@ -6,8 +6,9 @@ import ItemDetailContainer from './components/ItemDetailContainer'
 import ItemListContainer from './components/ItemListContainer'
 import Cart from './components/Cart'
 import { Firestore } from './firebaseConfig'
-
 import CartProvider from './context/cartContext'
+import Checkout from './components/Checkout'
+
 /*
 const data = [
   {
@@ -245,16 +246,19 @@ useEffect(() => {
         <Header/>
         <Switch>
           <Route exact path="/">
-            <ItemListContainer greeting="Listado de Productos" data={ listado }loader={ loader } />
+            <ItemListContainer greeting="Listado de Productos" data={ listado } loader={ loader } />
           </Route>
           <Route exact path="/category/:id">
-            <ItemListContainer greeting="Listado de Productos" data={ listado }loader={ loader }/>
+            <ItemListContainer greeting="Listado de Productos" data={ listado } loader={ loader }/>
           </Route>
           <Route exact path="/item/:id">
             <ItemDetailContainer greeting="Detalle de Producto" data={ listado }/>
           </Route>
           <Route exact path="/cart">
             <Cart greeting="Cesta de Compras"/>
+          </Route>
+          <Route exact path="/checkout">
+            <Checkout greeting="Finalizando tu Compra"/>
           </Route>
         </Switch>
         <Footer/>

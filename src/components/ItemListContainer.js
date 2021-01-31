@@ -29,7 +29,7 @@ function ItemListContainer({ greeting, data, loader }) {
 
   return (
     <>
-      <div className="container">
+      <div className="container mb-5">
           <div className="row">
               <div className="col-12 mt-5 pb-3">
                 <p className="titulo-pagina" style={style}>

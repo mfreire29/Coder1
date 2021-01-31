@@ -1,16 +1,8 @@
 import React, { useContext } from "react";
 import CartWidget from "./CartWidget";
 import { NavLink } from 'react-router-dom'
-import {CartContext} from '../context/cartContext'
-
 
 function Navbar() {
-
-  const { unidadesCarro, clear } = useContext(CartContext)
-
-  const vaciarCarro = () => {
-    clear()
-  }
 
   return (
     <>
@@ -32,24 +24,19 @@ function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <ul className="navbar-nav me-auto mb-2 mb-md-0">
-              <li className="nav-item">
+              <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                 <NavLink to="/" className="nav-link">
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                 <NavLink to="/category/1" className="nav-link">
                   Mujer
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                 <NavLink to="/category/2" className="nav-link">
                   Hombre
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/" className="nav-link">
-                  Mi Cuenta
                 </NavLink>
               </li>
             </ul>

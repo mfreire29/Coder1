@@ -12,13 +12,11 @@ function Cart({ greeting }) {
         color: "#a9a9a9",
     };
 
-    const { unidadesCarro, clear } = useContext(CartContext)
-
     const vaciarCarro = () => {
         clear()
     }
     
-    const { totalCarro, carro, removeItem } = useContext(CartContext)
+    const { totalCarro, carro, removeItem, unidadesCarro, clear } = useContext(CartContext)
 
     console.log(carro)
 
@@ -60,7 +58,11 @@ function Cart({ greeting }) {
 
                                     
                                     <hr/>
-                                    <h1 className="text-center">TOTAL: ${ totalCarro }.-</h1>
+                                    <h1 className="text-center">TOTAL: ${ totalCarro }.-
+                                    <NavLink to="/checkout">
+                                        <button className="btn btn-danger">Finalizar Compra</button>
+                                    </NavLink>
+                                    </h1>
                                     </div>
                                 </div>
                                 :

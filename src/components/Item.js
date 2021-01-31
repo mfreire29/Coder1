@@ -1,29 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import ItemCount from './ItemCount'
 import { NavLink } from 'react-router-dom'
+import { CartContext } from '../context/cartContext'
+
+
 
 function Item({id, title, stock, description, price, pictureUrl}) {
 
     const [estado, setEstado] = useState(0)
-    const [notif, setNotif] = useState(false)
+    const { addItem, removeItem, isInCart } = useContext(CartContext)
 
-    const onAdd = cantidad => {
-        setNotif(true)
+    const onAdd = (cantidad) => {
         setEstado(cantidad)
-        if(cantidad === 1) {
-            console.log("Se ha agregado " + cantidad + " producto al carrito." )
-        } else {
-            console.log("Se han agregado " + cantidad + " productos al carrito." )
-        }
+        addItem(id, title, cantidad, price, pictureUrl)
     }
 
     const eliminarProductoCarrito = () => {
+        removeItem(id)
         setEstado(0)
     }    
 
     return (
         <>
-                <div className="col-6 col-sm-6 col-md-3 my-3 pb-0 text-center">
+                <div className="col-6 col-sm-6 col-md-3 my-3 pb-5 text-center">
                     <NavLink to={`/item/`+ id} >
                         <img src={pictureUrl} className="img-fluid efecto  animate__animated animate__fadeIn" alt={description}/>
                     </NavLink>
@@ -56,7 +55,18 @@ function Item({id, title, stock, description, price, pictureUrl}) {
                             </>
                         :
                             <ItemCount stock={stock} initial={1} onAdd={onAdd} />
-                    } */}                    
+                    } */}
+                    {
+                        isInCart(id).length > 0 ?
+                            <>
+                                <NavLink to="/cart" className="nav-link text-center m-0 pt-0" >
+                                    <button className="btn btn-dark add m-0 p-0" >Terminar Compra</button>
+                                </NavLink>
+                                <button className="btn btn-dark add mt-0 p-1" onClick={eliminarProductoCarrito}>Eliminar del Carro</button>
+                            </>
+                        :
+                            <ItemCount stock={stock} initial={1} onAdd={onAdd} />
+                    }               
                 </div>
         </>
     )
