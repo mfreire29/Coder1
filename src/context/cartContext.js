@@ -20,16 +20,38 @@ const CartProvider = (props) => {
     );
 
     const addItem = (item, title, quantity, price, pictureUrl) => {        
-        if(isInCart(item).length === 0) {
+        if(isInCart(item).length === 1) {
+            let un = carro.filter(a => a.id === item)
+            const carrito = carro.filter(a => a.id !== item)
+            setCarro([...carrito, { id: item, title: title, quantity: quantity, precio: price, pictureUrl: pictureUrl, total: (price*quantity) }])
+            setUnidadesCarro(unidadesCarro - un[0].quantity + quantity)
+            setTotalCarro(totalCarro - (un[0].precio * un[0].quantity) + (price*quantity))
+            //console.log("ntreoooooooo ", carro)
+        } else {
             setCarro([...carro, { id: item, title: title, quantity: quantity, precio: price, pictureUrl: pictureUrl, total: (price*quantity) }])
             setCarroFinal([...carroFinal, { id: item, title: title, quantity: quantity, precio: price, total: (price*quantity) }])
+            setUnidadesCarro(unidadesCarro + quantity)
+            setTotalCarro(totalCarro + (price*quantity))
+            //notify('Producto Agregado')    
         }
-        notify('Producto Agregado')
-        setUnidadesCarro(unidadesCarro + quantity)
-        setTotalCarro(totalCarro + (price*quantity))
     }
 
-    const removeItem = (id, quantity) => {
+    const substractItem = (item, title, quantity, price, pictureUrl) => {        
+        if(quantity === 0){
+            removeItem(item)
+        } else {
+            if(isInCart(item).length === 1) {
+                let un = carro.filter(a => a.id === item)
+                const carrito = carro.filter(a => a.id !== item)
+                setCarro([...carrito, { id: item, title: title, quantity: quantity, precio: price, pictureUrl: pictureUrl, total: (price*quantity) }])
+                setUnidadesCarro(unidadesCarro - un[0].quantity + quantity)
+                setTotalCarro(totalCarro - (un[0].precio * un[0].quantity) + (price*quantity))
+                //console.log("ntreoooooooo ", carro)
+            }
+        }
+    }
+
+    const removeItem = (id) => {
         let un = carro.filter(a => a.id === id)
         setUnidadesCarro(unidadesCarro - un[0].quantity)
         setTotalCarro(totalCarro - (un[0].precio * un[0].quantity))
@@ -57,6 +79,7 @@ const CartProvider = (props) => {
                 carro,
                 setCarro,
                 addItem,
+                substractItem,
                 removeItem,
                 isInCart,
                 clear,

@@ -41,7 +41,8 @@ function FormCheckout({ setIdOrden, setNombreComprador }) {
             setTimeout(() => { setCarro([])}, 3000);        
             setTimeout(() => { setCarroFinal([])}, 3000);        
             setTimeout(() => { setUnidadesCarro(0)}, 3000);        
-            setTimeout(() => { setTotalCarro(0)}, 3000);        
+            setTimeout(() => { setTotalCarro(0)}, 3000);
+            window.open('https://api.whatsapp.com/send?phone=5491134020429&text=Tenemos%20un%20pedido%20http://localhost:3000/item/CyubnVeIGMoAgXebfcla');        
         })
         .catch((err) => {
             console.log(err)

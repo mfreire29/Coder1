@@ -4,6 +4,11 @@ import Item from './Item'
 
 function ItemList({ listado, loader }) {
 
+    const style = {
+        paddingLeft: 0,
+        listStyle: "none"
+    };
+
     const { id } = useParams();
 
     return (
@@ -12,7 +17,12 @@ function ItemList({ listado, loader }) {
                     id ?
                         <h3 className="text-center">{  parseInt(id) === 1 ? 'Mujer' : 'Hombre' }</h3>
                     :
-                    <h3 className="text-center">Nuestros Productos</h3>
+                    <>
+                        <p className="titulo-pagina my-3" style={style}>
+                            <div className="linea"></div>
+                            Productos Destacados
+                        </p>    
+                    </>
                 }
 
                 { loader ? 

@@ -246,7 +246,7 @@ useEffect(() => {
         <Header/>
         <Switch>
           <Route exact path="/">
-            <ItemListContainer greeting="Listado de Productos" data={ listado } loader={ loader } />
+            <ItemListContainer greeting="Nuestro Menú" data={ listado } loader={ loader } />
           </Route>
           <Route exact path="/category/:id">
             <ItemListContainer greeting="Listado de Productos" data={ listado } loader={ loader }/>
@@ -261,8 +261,7 @@ useEffect(() => {
             <Checkout greeting="Finalizando tu Compra"/>
           </Route>
         </Switch>
-        <Footer/>
-      </BrowserRouter>
+        </BrowserRouter>
       </CartProvider>
     )
     /*
