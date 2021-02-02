@@ -1,23 +1,12 @@
-import { Toast } from 'materialize-css';
 import React, { createContext, useState, useEffect } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export const CartContext = createContext()
 
 const CartProvider = (props) => {
 
     const [carro, setCarro] = useState([])
-    const [carroFinal, setCarroFinal] = useState([])
     const [unidadesCarro, setUnidadesCarro] = useState(0)
     const [totalCarro, setTotalCarro] = useState(0)
-
-    const notify = mensaje => toast.info(mensaje, 
-        {
-            position: toast.POSITION.TOP_RIGHT,
-            autoClose: 5000
-        }
-    );
 
     const addItem = (item, title, quantity, price, pictureUrl) => {        
         if(isInCart(item).length === 1) {
@@ -29,11 +18,17 @@ const CartProvider = (props) => {
             //console.log("ntreoooooooo ", carro)
         } else {
             setCarro([...carro, { id: item, title: title, quantity: quantity, precio: price, pictureUrl: pictureUrl, total: (price*quantity) }])
+<<<<<<< HEAD
             setCarroFinal([...carroFinal, { id: item, title: title, quantity: quantity, precio: price, total: (price*quantity) }])
             setUnidadesCarro(unidadesCarro + quantity)
             setTotalCarro(totalCarro + (price*quantity))
             //notify('Producto Agregado')    
         }
+=======
+        }
+        setUnidadesCarro(unidadesCarro + quantity)
+        setTotalCarro(totalCarro + (price*quantity))
+>>>>>>> parent of 4327304... Item Collection II
     }
 
     const substractItem = (item, title, quantity, price, pictureUrl) => {        
@@ -57,7 +52,6 @@ const CartProvider = (props) => {
         setTotalCarro(totalCarro - (un[0].precio * un[0].quantity))
         const carrito = carro.filter(a => a.id !== id)
         setCarro(carrito)
-        notify('Producto Eliminado')
     }
 
     const clear = () => {
@@ -84,16 +78,10 @@ const CartProvider = (props) => {
                 isInCart,
                 clear,
                 unidadesCarro,
-                totalCarro,
-                notify,
-                setUnidadesCarro,
-                setTotalCarro,
-                carroFinal,
-                setCarroFinal
+                totalCarro
             }}
         >
             {props.children}
-            <ToastContainer/>
         </CartContext.Provider>
     )
 }

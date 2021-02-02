@@ -11,7 +11,7 @@ function DetalleItem( { id, title, price, quantity, pictureUrl } ) {
   }
 
     return (
-          <div className="col-6 col-sm-3 col-md-2 my-5 pb-5 text-center delete-padre">
+          <div className="col-xs-12 col-sm-6 col-md-2 my-5 pb-5 text-center delete-padre">
             <button className="btn btn-dark btn-sm delete"onClick={ eliminarItem } >
               <span aria-hidden="true">X</span>  
             </button> 

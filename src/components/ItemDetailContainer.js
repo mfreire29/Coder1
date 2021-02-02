@@ -4,7 +4,7 @@ import ItemDetail from './ItemDetail'
 import { Firestore } from '../firebaseConfig'
 
 
-function ItemDetailContainer() {
+function ItemDetailContainer({ greeting, data }) {
 
     const [producto, setProducto] = useState([])
     const [loader, setLoader] = useState(true)
