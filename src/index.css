@@ -367,19 +367,15 @@ code {
 .btn.add {
   border-radius: 100px !important;
   height: 35px;
-<<<<<<< HEAD
-<<<<<<< HEAD
   width: 35px;
   margin-top: 7px;
   margin-left: -1px;
-=======
   width: 148px;
   margin-top: 10px;
->>>>>>> parent of 4327304... Item Collection II
-=======
   width: 148px;
   margin-top: 10px;
->>>>>>> parent of 4327304... Item Collection II
+  width: 148px;
+  margin-top: 10px;
 }
 .btn.add:hover {
   opacity: 0.7;
@@ -497,8 +493,6 @@ code {
   color: black;
   border: 0;
   border-bottom: 1px solid black;
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
 
 .Toastify__toast--info {
@@ -553,8 +547,4 @@ input:focus {
 
 .modal-header {
   border: none;
-=======
->>>>>>> parent of 4327304... Item Collection II
-=======
->>>>>>> parent of 4327304... Item Collection II
 }

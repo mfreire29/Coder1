@@ -5,27 +5,7 @@ import { NavLink } from 'react-router-dom'
 function Item({id, title, stock, description, price, pictureUrl}) {
 
     const [estado, setEstado] = useState(0)
-<<<<<<< HEAD
-<<<<<<< HEAD
     const { addItem, removeItem, isInCart, substractItem } = useContext(CartContext)
-=======
-    const [notif, setNotif] = useState(false)
->>>>>>> parent of 4327304... Item Collection II
-
-    const onAdd = cantidad => {
-        setNotif(true)
-        setEstado(cantidad)
-        if(cantidad === 1) {
-            console.log("Se ha agregado " + cantidad + " producto al carrito." )
-        } else {
-            console.log("Se han agregado " + cantidad + " productos al carrito." )
-        }
-    }
-
-    const onSubstract = (cantidad) => {
-        setEstado(cantidad)
-        substractItem(id, title, cantidad, price, pictureUrl)
-=======
     const [notif, setNotif] = useState(false)
 
     const onAdd = cantidad => {
@@ -36,7 +16,16 @@ function Item({id, title, stock, description, price, pictureUrl}) {
         } else {
             console.log("Se han agregado " + cantidad + " productos al carrito." )
         }
->>>>>>> parent of 4327304... Item Collection II
+    const [notif, setNotif] = useState(false)
+
+    const onAdd = cantidad => {
+        setNotif(true)
+        setEstado(cantidad)
+        if(cantidad === 1) {
+            console.log("Se ha agregado " + cantidad + " producto al carrito." )
+        } else {
+            console.log("Se han agregado " + cantidad + " productos al carrito." )
+        }
     }
 
     const eliminarProductoCarrito = () => {
@@ -45,31 +34,7 @@ function Item({id, title, stock, description, price, pictureUrl}) {
 
     return (
         <>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <div className="col-3 pb-3 text-center">
-=======
-                <div className="col-6 col-sm-6 col-md-3 my-3 pb-0 text-center">
->>>>>>> parent of 4327304... Item Collection II
-=======
-                <div className="col-6 col-sm-6 col-md-3 my-3 pb-0 text-center">
->>>>>>> parent of 4327304... Item Collection II
-                    <NavLink to={`/item/`+ id} >
-                        <img src={pictureUrl} className="img-fluid efecto  animate__animated animate__fadeIn" alt={description}/>
-                    </NavLink>
 
-                </div>
-                <div className="col-6 pb-3 text-left">
-                    <h5 className="card-title text-left my-0 py-0 pt-3">
-                        <NavLink to={`/item/`+ id} className="product-title" >
-                            {title}
-                        </NavLink>        
-                    </h5>
-<<<<<<< HEAD
-                    <p className="text-muted text-left my-0 py-0 product-description">{description}</p>
-                    <h3 className="card-text text-right mt-2 price"><b>${price}.-</b></h3>
-
-                </div>
                 <div className="col-3 pb-3 text-center">
                     {
                         isInCart(id).length > 0 ?
@@ -77,7 +42,6 @@ function Item({id, title, stock, description, price, pictureUrl}) {
                         :
                             <ItemCount stock={stock} initial={0} onAdd={onAdd} onSubstract={ onSubstract } />
                     }
-=======
                     <p className="card-text text-center my-0 py-0">{description}</p>
                     <h3 className="card-text text-center mt-2"><b>${price}.-</b></h3>
                     {/* {
@@ -103,10 +67,6 @@ function Item({id, title, stock, description, price, pictureUrl}) {
                         :
                             <ItemCount stock={stock} initial={1} onAdd={onAdd} />
                     } */}                    
-<<<<<<< HEAD
->>>>>>> parent of 4327304... Item Collection II
-=======
->>>>>>> parent of 4327304... Item Collection II
                 </div>
         </>
     )

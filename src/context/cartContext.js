@@ -18,20 +18,11 @@ const CartProvider = (props) => {
             //console.log("ntreoooooooo ", carro)
         } else {
             setCarro([...carro, { id: item, title: title, quantity: quantity, precio: price, pictureUrl: pictureUrl, total: (price*quantity) }])
-<<<<<<< HEAD
-<<<<<<< HEAD
             setCarroFinal([...carroFinal, { id: item, title: title, quantity: quantity, precio: price, total: (price*quantity) }])
             setUnidadesCarro(unidadesCarro + quantity)
             setTotalCarro(totalCarro + (price*quantity))
             //notify('Producto Agregado')    
         }
-=======
-=======
->>>>>>> parent of 4327304... Item Collection II
-        }
-        setUnidadesCarro(unidadesCarro + quantity)
-        setTotalCarro(totalCarro + (price*quantity))
->>>>>>> parent of 4327304... Item Collection II
     }
 
     const substractItem = (item, title, quantity, price, pictureUrl) => {        

@@ -1,15 +1,9 @@
 import React, { useContext } from "react";
 import CartWidget from "./CartWidget";
-<<<<<<< HEAD
 import Info from "./Info";
-=======
 import { NavLink } from 'react-router-dom'
 import {CartContext} from '../context/cartContext'
 
-<<<<<<< HEAD
->>>>>>> parent of 4327304... Item Collection II
-=======
->>>>>>> parent of 4327304... Item Collection II
 
 function Navbar() {
 
@@ -21,13 +15,6 @@ function Navbar() {
 
   return (
     <>
-<<<<<<< HEAD
-      <center>
-        <img src="https://www.bief.com.ar/tlv/logoW.jpeg" alt="logo" className="img-fluid" width="50%" />
-      </center>
-      <img src="https://pedidodirecto.net/assets/w03.jpg" alt="logo" className="img-fluid sombra" />
-      <Info/>
-=======
       <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div className="container-fluid">
           <NavLink to="/" className="navbar-brand">
@@ -70,7 +57,6 @@ function Navbar() {
           </div>
         </div>
       </nav>
->>>>>>> parent of 4327304... Item Collection II
       <CartWidget/>
     </>
   );

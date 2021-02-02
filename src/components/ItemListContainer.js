@@ -28,16 +28,6 @@ function ItemListContainer({ greeting, data, loader }) {
 
   return (
     <>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <div className="container-fluid mb-5 p-0">
-          <div className="row p-0 m-0">
-              <div className="col-12 p-0 mt-5 pb-3">
-                <p className="titulo-pagina m-0" style={style}>
-                  <div className="linea"></div>
-=======
-=======
->>>>>>> parent of 4327304... Item Collection II
       <div className="container">
           <div className="row">
               <div className="col-12 mt-5 pb-3">
@@ -52,7 +42,6 @@ function ItemListContainer({ greeting, data, loader }) {
                   >
                     <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
                   </svg>
->>>>>>> parent of 4327304... Item Collection II
                   {greeting}
                 </p>
                 <SliderCategorias/>    
