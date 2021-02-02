@@ -246,7 +246,11 @@ useEffect(() => {
         <Switch>
           <Route exact path="/">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <ItemListContainer greeting="Nuestro Menú" data={ listado } loader={ loader } />
+=======
+            <ItemListContainer greeting="Listado de Productos" data={ listado }loader={ loader } />
+>>>>>>> parent of 4327304... Item Collection II
 =======
             <ItemListContainer greeting="Listado de Productos" data={ listado }loader={ loader } />
 >>>>>>> parent of 4327304... Item Collection II

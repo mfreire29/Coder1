@@ -6,6 +6,7 @@ function Item({id, title, stock, description, price, pictureUrl}) {
 
     const [estado, setEstado] = useState(0)
 <<<<<<< HEAD
+<<<<<<< HEAD
     const { addItem, removeItem, isInCart, substractItem } = useContext(CartContext)
 =======
     const [notif, setNotif] = useState(false)
@@ -24,6 +25,18 @@ function Item({id, title, stock, description, price, pictureUrl}) {
     const onSubstract = (cantidad) => {
         setEstado(cantidad)
         substractItem(id, title, cantidad, price, pictureUrl)
+=======
+    const [notif, setNotif] = useState(false)
+
+    const onAdd = cantidad => {
+        setNotif(true)
+        setEstado(cantidad)
+        if(cantidad === 1) {
+            console.log("Se ha agregado " + cantidad + " producto al carrito." )
+        } else {
+            console.log("Se han agregado " + cantidad + " productos al carrito." )
+        }
+>>>>>>> parent of 4327304... Item Collection II
     }
 
     const eliminarProductoCarrito = () => {
@@ -33,7 +46,11 @@ function Item({id, title, stock, description, price, pictureUrl}) {
     return (
         <>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <div className="col-3 pb-3 text-center">
+=======
+                <div className="col-6 col-sm-6 col-md-3 my-3 pb-0 text-center">
+>>>>>>> parent of 4327304... Item Collection II
 =======
                 <div className="col-6 col-sm-6 col-md-3 my-3 pb-0 text-center">
 >>>>>>> parent of 4327304... Item Collection II
@@ -86,6 +103,9 @@ function Item({id, title, stock, description, price, pictureUrl}) {
                         :
                             <ItemCount stock={stock} initial={1} onAdd={onAdd} />
                     } */}                    
+<<<<<<< HEAD
+>>>>>>> parent of 4327304... Item Collection II
+=======
 >>>>>>> parent of 4327304... Item Collection II
                 </div>
         </>

@@ -29,12 +29,15 @@ function ItemListContainer({ greeting, data, loader }) {
   return (
     <>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <div className="container-fluid mb-5 p-0">
           <div className="row p-0 m-0">
               <div className="col-12 p-0 mt-5 pb-3">
                 <p className="titulo-pagina m-0" style={style}>
                   <div className="linea"></div>
 =======
+=======
+>>>>>>> parent of 4327304... Item Collection II
       <div className="container">
           <div className="row">
               <div className="col-12 mt-5 pb-3">

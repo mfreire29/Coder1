@@ -17,9 +17,12 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "react-slick": "^0.28.0",
     "react-toastify": "^7.0.1",
     "slick-carousel": "^1.8.1",
+=======
+>>>>>>> parent of 4327304... Item Collection II
 =======
 >>>>>>> parent of 4327304... Item Collection II
     "web-vitals": "^0.2.4"

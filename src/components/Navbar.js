@@ -6,6 +6,9 @@ import Info from "./Info";
 import { NavLink } from 'react-router-dom'
 import {CartContext} from '../context/cartContext'
 
+<<<<<<< HEAD
+>>>>>>> parent of 4327304... Item Collection II
+=======
 >>>>>>> parent of 4327304... Item Collection II
 
 function Navbar() {
